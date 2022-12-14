@@ -3,9 +3,9 @@ import axios from "axios";
 import { Puff } from "react-loader-spinner";
 import "./Weather.css";
 export default function Weather() {
-  let [city, setCity] = useState("");
-  let [weather, setWeather] = useState(null);
-  let [load, setLoad] = useState(false);
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [load, setLoad] = useState(false);
 
   function handleResponse(response) {
     setLoad(true);
@@ -19,7 +19,7 @@ export default function Weather() {
   function handleSubmit(event) {
     event.preventDefault();
     let apiKey = "b400bd91e1f55450d6bbdc0410210d96";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
   function updateCity(event) {
